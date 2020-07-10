@@ -120,6 +120,7 @@ main {
 
 .close-lb:hover { opacity: 1;}
 
+.show-lightbox { display: block; }
 
 video {
 	width: 80%;
