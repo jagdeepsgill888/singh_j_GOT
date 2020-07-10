@@ -8,16 +8,20 @@
 
       function showHideLightbox (){
         lightBox.classList.toggle('show-lightbox');
-      }
 
-      // try making the vid play as well
+       // try making the video play as well
+
+      // check the play state of the video.
+      // if it's paused or not playing, that means we just opened the lightBox
+      // and we want the video to play
       if (lbVideo.paused) {
         lbVideo.play();
       } else {
+        // lightbox is open and we want the video to rewind and stop when we close it.
         lbVideo.currentTime = 0;
         lbVideo.pause();
       }
-
+    }
 
       // rewind the video and make it pause at the currentTime of 0
       // lbVideo.pause();
