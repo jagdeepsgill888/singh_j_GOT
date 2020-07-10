@@ -1,8 +1,8 @@
-(() =>{
-  console.log('fired');
+(() => {
+  console.log('fired!');
 
-  let lightbox = document.querySelector(".lightbox"),
-      lbClose = lightbox.querySelector("span"),
+  let lightBox = document.querySelector(".lightbox"),
+      lbClose = lightBox.querySelector("span"),
       sigils = document.querySelectorAll(".sigilContainer");
 
       function showLightbox (){
