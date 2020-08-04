@@ -38,7 +38,7 @@ main {
 
 #houseImages {
   position:relative;
-  width:4000px; /* this might need to be bigger*/
+  width:6000px; /* this might need to be bigger*/
   transition: all .5s; }
 #houseImages img { float:left; }
 
