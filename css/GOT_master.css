@@ -33,10 +33,13 @@ main {
 	height:360px;
 	background-color:grey;
 	margin:0 auto;
-	/*overflow:hidden;*/
+	overflow:hidden; /* ony show one pic, it crops the dimiention to the pic*/
 }
 
-#houseImages { position:relative; width:4000px; transition: all .5s; }
+#houseImages {
+  position:relative;
+  width:4000px; /* this might need to be bigger*/
+  transition: all .5s; }
 #houseImages img { float:left; }
 
 #bottomNav { margin-top:30px; }
@@ -112,9 +115,9 @@ main {
   padding: 0 30px 0 0;
   cursor: pointer;
   font-size: 3em;
-
+  font-family: Arial, Helvetica, sans-serif;
   color: white;
-  opacity: 0.5;
+  opacity: 0.6;
 
 }
 
@@ -122,8 +125,24 @@ main {
 
 .show-lightbox { display: block; }
 
+.house-info {
+  width:70%;
+  margin: 0 auto;
+  color: white;
+  font-size: 1.2em;
+  line-height: 26px;
+  margin-top: 1em;
+}
+
 video {
 	width: 80%;
-	margin-top: 10%;
+	margin-top: 30px;
 	border: thin solid #949393;
+  max-width: 900px;
+}
+
+.vid-controls i {
+  font-size: 3em;
+color: white;
+cursor: pointer;
 }
