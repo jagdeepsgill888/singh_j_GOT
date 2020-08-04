@@ -53,8 +53,8 @@
         Baelish acting as Lord Protector until he reaches the age of majority.`]
       ]
 
-      function showHideLightbox (){
-        lightBox.classList.toggle('show-lightbox');
+      function showLightbox (){
+        lightBox.classList.add('show-lightbox');
 
        // try making the video play as well
        // load the right video,then play interval
@@ -64,19 +64,26 @@
       lbVideo.src = `video/House-${targetSource}.mp4`;
       lbVideo.load();
       //debugger;
-      
+       lbVideo.play();
 
       // check the play state of the video.
       // if it's paused or not playing, that means we just opened the lightBox
       // and we want the video to play
-      if (lbVideo.paused) {
-        lbVideo.play();
-      } else {
+    //  if (lbVideo.paused) {
+    //    lbVideo.play();
+    //  } else {
         // lightbox is open and we want the video to rewind and stop when we close it.
+      //  lbVideo.currentTime = 0;
+      //  lbVideo.pause();
+      //}
+     }
+
+      function hideLightbox() {
+        lightBox.classList.remove('show-lightbox');
+
         lbVideo.currentTime = 0;
         lbVideo.pause();
       }
-    }
 
       // rewind the video and make it pause at the currentTime of 0
       // lbVideo.pause();
@@ -95,12 +102,12 @@
           houseBio.textContent =`House ${houseInfo[this.dataset.offset][1]}`;
       }
 
-      sigils.forEach(sigil => sigil.addEventListener("click", showHideLightbox));
+      sigils.forEach(sigil => sigil.addEventListener("click", showLightbox));
 
       sigils.forEach(sigil => sigil.addEventListener("click", animateBanner));
 
-      lbClose.addEventListener("click", showHideLightbox);
+      lbClose.addEventListener("click", hideLightbox);
 
       // add and "ended" event handler for the video -> close the lightbox
-      lbVideo.addEventListener("ended", showHideLightbox);
+      lbVideo.addEventListener("ended", hideLightbox);
 })();
