@@ -57,6 +57,14 @@
         lightBox.classList.toggle('show-lightbox');
 
        // try making the video play as well
+       // load the right video,then play interval
+       let house = this.classList[1],// stark, baratheon etc
+         targetSource = house.charAt(0).toUpperCase() + house.slice(1); // Stark
+
+      lbVideo.src = `video/House-${targetSource}.mp4`;
+      lbVideo.load();
+      //debugger;
+      
 
       // check the play state of the video.
       // if it's paused or not playing, that means we just opened the lightBox
