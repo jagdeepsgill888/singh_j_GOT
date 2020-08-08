@@ -4,7 +4,8 @@
   let lightBox = document.querySelector(".lightbox"),
       lbClose = lightBox.querySelector("span"),
       lbVideo = lightBox.querySelector("video"),
-      sigils = document.querySelectorAll(".sigilContainer");
+      sigils = document.querySelectorAll(".sigilContainer"),
+      playButton = document.querySelector('.fa-play-circle'),
       houseImages = document.querySelector("#houseImages");
       houseName = document.querySelector(".house-name");
       houseBio = document.querySelector(".house-info");
@@ -127,6 +128,18 @@
 
       }
 
+      function playNPause()
+          {
+              if (lbVideo.paused) {
+                  lbVideo.play();
+              } else {
+                  lbVideo.pause();
+
+              }
+          }
+
+
+
 
       sigils.forEach(sigil => sigil.addEventListener("click", animateBanner));
       sigils.forEach(sigil => sigil.addEventListener("click", showLightbox));
@@ -136,4 +149,5 @@
 
       // add and "ended" event handler for the video -> close the lightbox
       lbVideo.addEventListener("ended", hideLightbox);
+      playButton.addEventListener('click', playNPause);
 })();
