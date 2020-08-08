@@ -6,6 +6,7 @@
       lbVideo = lightBox.querySelector("video"),
       sigils = document.querySelectorAll(".sigilContainer"),
       playButton = document.querySelector('.fa-play-circle'),
+      backButton = document.querySelector('.fa-backward'),
       houseImages = document.querySelector("#houseImages");
       houseName = document.querySelector(".house-name");
       houseBio = document.querySelector(".house-info");
@@ -138,7 +139,9 @@
               }
           }
 
-
+ function goBack3 () {
+   lbVideo.currentTime(lbVideo.currentTime() - 10);
+ }
 
 
       sigils.forEach(sigil => sigil.addEventListener("click", animateBanner));
@@ -150,4 +153,5 @@
       // add and "ended" event handler for the video -> close the lightbox
       lbVideo.addEventListener("ended", hideLightbox);
       playButton.addEventListener('click', playNPause);
+      backButton.addEventListener('click', goBack3);
 })();
