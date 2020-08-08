@@ -77,7 +77,8 @@
       ]
 
       function showLightbox (){
-        lightBox.classList.add('show-lightbox');
+        // added a timing event to allow the banner to animate beofre lightbox
+        setTimeout(function(){lightBox.classList.add('show-lightbox');}, 800);
 
        // try making the video play as well
        // load the right video,then play interval
@@ -123,11 +124,13 @@
 
           houseName.textContent =`House ${houseInfo[this.dataset.offset][0]}`;
           houseBio.textContent =`House ${houseInfo[this.dataset.offset][1]}`;
+
       }
 
-      sigils.forEach(sigil => sigil.addEventListener("click", showLightbox));
 
       sigils.forEach(sigil => sigil.addEventListener("click", animateBanner));
+      sigils.forEach(sigil => sigil.addEventListener("click", showLightbox));
+
 
       lbClose.addEventListener("click", hideLightbox);
 
