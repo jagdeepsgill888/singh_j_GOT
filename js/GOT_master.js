@@ -4,7 +4,9 @@
   let lightBox = document.querySelector(".lightbox"),
       lbClose = lightBox.querySelector("span"),
       lbVideo = lightBox.querySelector("video"),
-      sigils = document.querySelectorAll(".sigilContainer");
+      sigils = document.querySelectorAll(".sigilContainer"),
+      playButton = document.querySelector('.fa-play-circle'),
+      backButton = document.querySelector('.fa-backward'),
       houseImages = document.querySelector("#houseImages");
       houseName = document.querySelector(".house-name");
       houseBio = document.querySelector(".house-info");
@@ -77,7 +79,8 @@
       ]
 
       function showLightbox (){
-        lightBox.classList.add('show-lightbox');
+        // added a timing event to allow the banner to animate beofre lightbox
+        setTimeout(function(){lightBox.classList.add('show-lightbox');}, 800);
 
        // try making the video play as well
        // load the right video,then play interval
@@ -123,14 +126,32 @@
 
           houseName.textContent =`House ${houseInfo[this.dataset.offset][0]}`;
           houseBio.textContent =`House ${houseInfo[this.dataset.offset][1]}`;
+
       }
 
-      sigils.forEach(sigil => sigil.addEventListener("click", showLightbox));
+      function playNPause()
+          {
+              if (lbVideo.paused) {
+                  lbVideo.play();
+              } else {
+                  lbVideo.pause();
+
+              }
+          }
+
+ function goBack3 () {
+   lbVideo.currentTime(lbVideo.currentTime() - 10);
+ }
+
 
       sigils.forEach(sigil => sigil.addEventListener("click", animateBanner));
+      sigils.forEach(sigil => sigil.addEventListener("click", showLightbox));
+
 
       lbClose.addEventListener("click", hideLightbox);
 
       // add and "ended" event handler for the video -> close the lightbox
       lbVideo.addEventListener("ended", hideLightbox);
+      playButton.addEventListener('click', playNPause);
+      backButton.addEventListener('click', goBack3);
 })();
